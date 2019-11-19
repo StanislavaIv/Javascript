@@ -1,0 +1,29 @@
+function toyStore(input) {
+    let priceTrip = Number(input.shift());
+    let puzzels = Number(input.shift());
+    let talkingDolls = Number(input.shift());
+    let plushBears= Number(input.shift());
+    let minions = Number(input.shift());
+    let trucks = Number(input.shift());
+    let fullToyCount = puzzels + talkingDolls + plushBears + minions + trucks;
+    let incomePuzzels = puzzels * 2.60;
+    let incometalkingDolls = talkingDolls * 3;
+    let incomePlushBears = plushBears * 4.10;
+    let incomeMinion = minions * 8.20;
+    let incomeTruck = trucks * 2;
+    let income = incomePuzzels + incometalkingDolls + incomePlushBears+ incomeMinion + incomeTruck;
+    let discount = income * 0.25;
+    let fullIncome = 0;
+ 
+    if (fullToyCount >= 50) {
+        fullIncome = income - discount;  
+    } else {
+        fullIncome = income;
+    }
+    let rent = fullIncome * 0.1;
+    if (fullIncome - rent >= priceTrip) {
+        console.log(`Yes! ${(fullIncome - (rent + priceTrip)).toFixed(2)} lv left.`)
+    } else if (fullIncome - rent < priceTrip) {
+        console.log(`Not enough money! ${(priceTrip - (fullIncome - rent)).toFixed(2)} lv needed.`)
+    }
+}
